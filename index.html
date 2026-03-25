@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sistema de Mediciones</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+    <div class="app-container">
+        <header class="empresa-header">
+            <div class="logo-section">
+                <h2 id="conf-nombre-empresa"></h2>
+                <p class="sub-logo" id="conf-sub-logo"></p>
+                <div id="conf-contacto-section" style="font-size: 0.75rem; color: #7f8c8d;"></div>
+            </div>
+            <div class="logo-img-container">
+                <img src="" alt="Logo" id="conf-logo-img">
+            </div>
+        </header>
+
+        <section class="form-section">
+            <form id="form-medicion">
+                <div class="grid-cabecera">
+                    <div class="campo">
+                        <label>Nº Presupuesto / Albarán</label>
+                        <input type="text" id="numDocumento" placeholder="0000">
+                    </div>
+                    <div class="campo">
+                        <label>Obra / Cliente *</label>
+                        <input type="text" id="obra" required>
+                    </div>
+                    <div class="campo">
+                        <label>Trabajador</label>
+                        <input type="text" id="trabajador">
+                    </div>
+                    <div class="campo">
+                        <label>Fecha</label>
+                        <input type="date" id="fecha">
+                    </div>
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Partida</th>
+                                <th>Ancho</th><th></th><th>Alto</th><th></th><th>Largo</th>
+                                <th style="text-align:right;">Total</th>
+                                <th class="col-costes" style="display:none; text-align:right;">€/m²</th>
+                                <th class="col-costes" style="display:none; text-align:right;">Importe</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="filas-medicion"></tbody>
+                        <tfoot id="footer-costes" style="display:none;">
+                            <tr>
+                                <td colspan="8" style="text-align:right; font-weight:bold;">TOTAL GENERAL:</td>
+                                <td id="total-dinero" style="text-align:right; font-weight:bold;">0.00 €</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <button type="button" class="btn-add" onclick="agregarFila()">+ AÑADIR PARTIDA</button>
+
+                <div class="campo" style="margin-top:20px;">
+                    <label>Observaciones</label>
+                    <textarea id="notas" rows="3"></textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="button" id="btnActivarCostes" class="btn-pdf" onclick="activarCostes()">💰 COSTES</button>
+                    <button type="button" id="btnGuardar" class="btn-pdf" onclick="guardarEnNube()">☁️ GUARDAR</button>
+                    <button type="button" id="btnCargar" class="btn-pdf" onclick="cargarObraPorNombre()">🔍 CARGAR</button>
+                    <button type="button" class="btn-pdf" onclick="generarPDF()">📄 PDF</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

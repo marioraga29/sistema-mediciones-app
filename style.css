@@ -1,0 +1,226 @@
+:root {
+    /* Estos valores son los "por defecto", el script.js los cambiará según config.js */
+    --primary: #2c3e50;
+    --accent: #34495e;
+    --danger: #e74c3c;
+    --success: #27ae60;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --border: #dcdde1;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    padding: 10px;
+    color: #2f3640;
+}
+
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- CABECERA DINÁMICA --- */
+.empresa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f1f2f6;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.logo-section h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sub-logo {
+    font-size: 0.8rem;
+    margin: 5px 0;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.logo-img-container img {
+    max-height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- GRID DE DATOS --- */
+.grid-cabecera {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--accent);
+}
+
+.campo input, .campo textarea {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* --- TABLA DE MEDICIONES --- */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto; /* Para que en móviles se pueda deslizar */
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: var(--primary);
+    padding: 12px;
+    text-align: left;
+    font-size: 0.85rem;
+    border-bottom: 2px solid var(--border);
+}
+
+td {
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+/* Inputs dentro de la tabla */
+input[type="number"], select {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+select {
+    width: 100%;
+    background: white;
+}
+
+.tipo-material { font-weight: bold; }
+
+/* Estilo para el input manual cuando aparece */
+.subtipo-manual {
+    border: 1px solid var(--orange, #e67e22) !important;
+    background-color: #fffaf0;
+}
+
+/* --- BOTONES --- */
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-bottom: 20px;
+}
+
+.btn-delete {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.btn-pdf {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--primary);
+}
+
+/* --- FOOTER DE COSTES --- */
+#footer-costes td {
+    background: #f1f2f6;
+    font-size: 1.1rem;
+    padding: 15px;
+    color: var(--primary);
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 600px) {
+    .empresa-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-img-container {
+        margin-top: 15px;
+    }
+
+    .grid-cabecera {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        grid-template-columns: 1fr 1fr; /* 2 botones por fila en móvil */
+    }
+}
+
+/* Notas de ayuda */
+.guia-ayuda-nube {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f4fd;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
