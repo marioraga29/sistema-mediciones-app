@@ -1,34 +1,26 @@
 :root {
-    /* Estos valores son los "por defecto", el script.js los cambiará según config.js */
     --primary: #2c3e50;
     --accent: #34495e;
     --danger: #e74c3c;
-    --success: #27ae60;
     --bg: #f4f7f6;
-    --white: #ffffff;
-    --border: #dcdde1;
-}
-
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    --orange: #e67e22;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg);
     margin: 0;
-    padding: 10px;
-    color: #2f3640;
+    padding: 15px;
+    color: #333;
 }
 
 .app-container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
-    background: var(--white);
-    padding: 20px;
+    background: white;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 /* --- CABECERA DINÁMICA --- */
@@ -36,25 +28,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #f1f2f6;
-    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
     margin-bottom: 25px;
 }
 
-.logo-section h2 {
-    margin: 0;
-    color: var(--primary);
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.sub-logo {
-    font-size: 0.8rem;
-    margin: 5px 0;
-    font-weight: 600;
-    color: var(--accent);
-}
+.logo-section h2 { margin: 0; color: var(--primary); font-size: 1.5rem; letter-spacing: 1px; }
+.sub-logo { font-size: 0.75rem; font-weight: bold; margin-top: 5px; color: #555; }
 
 .logo-img-container img {
     max-height: 70px;
@@ -63,164 +43,126 @@ body {
 }
 
 /* --- GRID DE DATOS --- */
-.grid-cabecera {
+.info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     margin-bottom: 25px;
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
 }
 
-.campo {
-    display: flex;
-    flex-direction: column;
-}
-
-.campo label {
-    font-size: 0.85rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: var(--accent);
-}
-
-.campo input, .campo textarea {
-    padding: 10px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 1rem;
+.input-group label { display: block; font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; color: var(--primary); }
+.input-group input { 
+    width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; box-sizing: border-box; 
 }
 
 /* --- TABLA DE MEDICIONES --- */
-.tabla-contenedor {
-    width: 100%;
-    overflow-x: auto; /* Para que en móviles se pueda deslizar */
-    margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 700px;
-}
-
-th {
-    background-color: #f8f9fa;
-    color: var(--primary);
-    padding: 12px;
-    text-align: left;
-    font-size: 0.85rem;
-    border-bottom: 2px solid var(--border);
-}
-
-td {
-    padding: 10px 5px;
-    border-bottom: 1px solid #eee;
-    vertical-align: top;
-}
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 600px; }
+th { background: #f8f9fa; padding: 12px; font-size: 0.75rem; color: var(--primary); text-align: left; border-bottom: 2px solid #dee2e6; }
+td { padding: 10px 5px; border-bottom: 1px solid #f1f1f1; }
 
 /* Inputs dentro de la tabla */
-input[type="number"], select {
-    padding: 8px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-size: 0.9rem;
+select, input[type="number"] {
+    width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; background: #fff;
 }
 
-select {
-    width: 100%;
-    background: white;
-}
-
-.tipo-material { font-weight: bold; }
-
-/* Estilo para el input manual cuando aparece */
 .subtipo-manual {
-    border: 1px solid var(--orange, #e67e22) !important;
-    background-color: #fffaf0;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.2s;
 }
+
+.subtipo-manual:focus {
+    border: 1px solid #e67e22 !important; 
+    background-color: #fffdfb !important;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+.total-fila { font-weight: bold; color: var(--primary); font-size: 1rem; text-align: right; }
 
 /* --- BOTONES --- */
 .btn-add {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    margin-bottom: 20px;
+    background: #fff; border: 1px dashed var(--primary); color: var(--primary);
+    padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 15px;
 }
 
 .btn-delete {
-    background-color: var(--danger);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+    background: #fff5f5; color: var(--danger); border: 1px solid #feb2b2;
+    width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.2rem;
 }
 
-.actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
-    margin-top: 30px;
+.btn-delete:hover { background: var(--danger); color: white; }
+
+.guia-ayuda {
+    margin-top: 25px;
+    padding: 12px 15px;
+    background-color: #fff9f0;
+    border-left: 4px solid var(--orange);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #856404;
+}
+
+.guia-ayuda strong { color: var(--orange); }
+
+.guia-ayuda-nube {
+    margin-top: 10px;
+    padding: 12px 15px;
+    background-color: #f0f7ff;
+    border-left: 4px solid #3498db; 
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+.guia-ayuda-nube strong { 
+    color: #3498db; 
+}
+
+/* --- SECCIÓN BOTONES --- */
+.actions { 
+    margin-top: 40px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 8px;
+    flex-wrap: nowrap;
 }
 
 .btn-pdf {
-    padding: 15px;
+    flex: 1;
+    min-width: 120px;
+    max-width: 210px;
+    background: var(--primary); 
+    color: white; 
+    padding: 12px 5px; 
     border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 0.85rem;
+    border-radius: 8px; 
+    font-size: 0.75rem; /* Ajustado para que quepan textos largos */
+    font-weight: bold; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    background-color: var(--primary);
+    gap: 4px;
+    white-space: nowrap;
 }
 
-/* --- FOOTER DE COSTES --- */
-#footer-costes td {
-    background: #f1f2f6;
-    font-size: 1.1rem;
-    padding: 15px;
-    color: var(--primary);
+.btn-pdf:active {
+    transform: scale(0.96);
+    background: var(--accent);
 }
 
-/* --- RESPONSIVO --- */
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+    .actions { flex-wrap: wrap; }
+    .btn-pdf { flex: 45%; max-width: none; font-size: 0.85rem; }
+}
+
 @media (max-width: 600px) {
-    .empresa-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .logo-img-container {
-        margin-top: 15px;
-    }
-
-    .grid-cabecera {
-        grid-template-columns: 1fr;
-    }
-
-    .actions {
-        grid-template-columns: 1fr 1fr; /* 2 botones por fila en móvil */
-    }
-}
-
-/* Notas de ayuda */
-.guia-ayuda-nube {
-    margin-top: 20px;
-    padding: 15px;
-    background: #e8f4fd;
-    border-left: 4px solid #3498db;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    line-height: 1.4;
+    .empresa-header { flex-direction: column; text-align: center; }
+    .contacto-section p { text-align: center; margin-top: 10px; }
+    .btn-pdf { flex: 100%; } 
 }
