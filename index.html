@@ -27,6 +27,48 @@
             </div>
         </header>
 
+        <div id="guia-demo" style="background: #ffffff; border-left: 6px solid var(--accent); margin-bottom: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); font-family: sans-serif; transition: all 0.3s ease; overflow: hidden;">
+    
+            <div onclick="toggleGuia()" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; cursor: pointer; background: rgba(0,0,0,0.02);">
+                <h4 style="margin: 0; color: var(--primary); font-size: 1.1em; display: flex; align-items: center;">
+                    <span style="margin-right: 8px;">🚀</span> Guía de Uso (Demo)
+                </h4>
+                <span id="guia-icon" style="color: var(--accent); font-weight: bold; font-size: 1.2em;">−</span>
+            </div>
+            
+            <div id="guia-content" style="padding: 0 20px 20px 20px; color: #444; line-height: 1.5; font-size: 0.95em;">
+                <p style="margin-bottom: 12px; margin-top: 10px;">He preparado <strong>dos ejemplos</strong> en la nube para que pruebes el sistema:</p>
+                
+                <ul style="padding-left: 20px; margin-bottom: 15px;">
+                    <li style="margin-bottom: 8px;">Pulse <strong>"Buscar y Cargar"</strong> e introduzca <code>DEMO1</code> o <code>DEMO2</code> (Clave: <strong style="color: var(--accent);">demo123</strong>).</li>
+                    <li style="margin-bottom: 8px;">Pulse <strong>"Generar PDF"</strong> para ver el acabado final.</li>
+                    <li>Puede crear una obra nueva y darle a <strong>"Guardar en la Nube"</strong> para registrarla.</li>
+                </ul>
+                
+                <p style="margin: 0; font-size: 0.85em; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+                    * Los materiales, partidas y colores son 100% configurables por empresa.
+                </p>
+            </div>
+        </div>
+
+        <script>
+        function toggleGuia() {
+            const content = document.getElementById('guia-content');
+            const icon = document.getElementById('guia-icon');
+            const box = document.getElementById('guia-demo');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.innerText = '−'; // Signo de menos
+                box.style.opacity = '1';
+            } else {
+                content.style.display = 'none';
+                icon.innerText = '+'; // Signo de más
+                box.style.opacity = '0.8';
+            }
+        }
+        </script>
+
         <section class="form-section">
             <form id="formMediciones">
                 <div class="info-grid">
