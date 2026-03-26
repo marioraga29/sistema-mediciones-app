@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         if (req.method === 'POST') {
             const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
             
-            const fetchRes = await fetch(`${url}/rest/v1/lista-partidas`, {
+            const fetchRes = await fetch(`${url}/rest/v1/lista-partidas-demo`, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(body)
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
                 return res.status(400).json({ error: "Falta el nombre de la obra para realizar la búsqueda." });
             }
 
-            const fetchRes = await fetch(`${url}/rest/v1/lista-partidas?nombre_obra=eq.${encodeURIComponent(nombre)}&select=*&order=created_at.desc&limit=1`, {
+            const fetchRes = await fetch(`${url}/rest/v1/lista-partidas-demo?nombre_obra=eq.${encodeURIComponent(nombre)}&select=*&order=created_at.desc&limit=1`, {
                 headers: headers
             });
             
